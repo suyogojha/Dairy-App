@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <!-- For datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- google font api -->
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+
+    <!-- Favicon Icon -->
+    <link href="{% static 'images/favicon.png' %}" rel="shortcut icon" type="image/png"/>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>{% block title %}MyDairy{% endblock %}</title>
+
+<style type="text/css">
+
+  body {
+    /* min-height: 50rem; */
+    /* min-height: auto; */
+    /* padding-top: 8.0rem; */
+    padding-top: 6.0rem;
+    /* background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%); */
+    /* background-color: #2B2D33; */
+    background-color: #212328;
+  }
+
+  i{
+    /* color:#343A40; */
+    color:#565656;
+  }
+
+  .menu-text-size{
+    font-size:14px;
+    {% comment %} padding: 10px; {% endcomment %}
+  }
+
+  .navbar{
+        height: 10%;
+        opacity: 1;
+        /* color: #565656; */
+        color: #FFFFFF;
+        /* background-color: #17181B; */
+        /* background-color: #FFFFFF; */
+        /* background-color: #003542; */
+        background-color: #2C3E50;
+        /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+        /* font-family: 'Russo One', sans-serif; */
+        /* font-weight: 500; */
+        /* font-family: 'Roboto Mono', monospace; */
+  }
+
+  .nav-item {
+    /* text-transform: uppercase; */
+    /* text-transform: lowercase; */
+    text-transform: capitalize;
+    /* font-family: 'Piazzolla', serif; */
+    font-family: 'Bree Serif', serif;
+  }
+  .form-inline {
+    /* text-transform: uppercase; */
+    /* text-transform: lowercase; */
+    text-transform: capitalize;
+    /* font-family: 'Piazzolla', serif; */
+    font-family: 'Bree Serif', serif;
+  }
+
+  .dropdown:hover .dropdown-menu{
+      display: block;
+      margin-top: 0;  /* remove the gap so it doesn't close */
+      background-color: #003542;
+      color: #FFFFFF;
+  }
+
+  .dropdown-menu a:hover, i:hover{
+    color: #F3798E;
+    background-color: #003542;
+  }
+  
+  .dropdown a, i{
+    color: #FFFFFF;   /* color: #fff342!important; */
+  }
+
+
+  /* .fa-plus:hover {
+    color: red;
+  } */
+
+  .logo-image{
+    width: 60px;
+    height: 60px;
+  }
+
+  .asteriskField{
+    display: none;
+  }
+
+  form .alert ul li{
+    list-style: none;
+  }
+
+  form .alert ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  #totalid{
+    /* color: #B81900; */
+    color:#B20032;
+  }
+
+  th{
+      /* background-color:#007D91; */
+      background-color:#2C3E50;
+      color: white;
+      /* color: #B8C6CC; */
+  }
+
+  td{
+    color: #B8C6CC;
+  }
+
+  .vendor_name_heading{
+    /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Roboto Mono', monospace;
+    /* color:#800000; */
+    color:#B20032;
+    /* color:#F3798E; */
+    text-align:center;
+    font-size:40px;
+    padding: 7px;
+  }
+  tr{
+    text-align:center;
+  }
+
+  #tbodydata {
+      display:block;
+      height:450px;
+      overflow:auto;
+      width: calc( 100% - 1em )
+  }
+  thead, tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+  }
+
+  #theadthid{
+      width: calc( 100% - 1em )
+  }
+
+  .footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: #FFFFFF; */
+    /* background-color: #003542; */
+    background-color: green;
+    color: white;
+    text-align: center;
+    /* display: block; */
+  }
+
+  /* h1, h2, h3, h4, h5, h6, strong{
+    font-family: 'Russo One', sans-serif;
+    font-weight: 500;
+  } */
+
+  .back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+  }
+</style>
+  </head>
+<body>
+  <nav class="navbar navbar-expand-md fixed-top bg-success">
+    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> -->
+    <div class="container ">
+
+      <div class="logo-image">
+            
+      </div>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}" style="color: #FFFFFF;">Home</a>
+        </li>
+        {% if user.profile.user_type == 'Customer' %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Customer_page' %}" style="color: white;">{{user.first_name}} {{user.last_name}}</a>
+        </li>
+        {% endif %}
+        &nbsp;&nbsp;&nbsp;
+        {% if user.is_authenticated and user.profile.user_type == 'Manager'%}
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vendor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'addvendor' %}"><i class="fas fa-plus"></i> <span class="menu-text-size">&nbsp;&nbsp;Vendor</span></a>
+              <a class="dropdown-item" href="{% url 'add_milk_category' %}"><i class="fas fa-plus"></i><span class="menu-text-size">&nbsp;&nbsp; Milk Category</span></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'allvendor' %}"><i class="fa fa-user" ></i><span class="menu-text-size">&nbsp;&nbsp; All Vendors</span></a>
+              </div>
+          </li>
+            &nbsp;&nbsp;&nbsp;
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Customers
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'signup' %}"><i class="fas fa-plus"></i><span class="menu-text-size">&nbsp;&nbsp; Sign Up</span></a>
+              <a class="dropdown-item" href="{% url 'addcustomer' %}"><i class="fas fa-plus"></i><span class="menu-text-size">&nbsp;&nbsp; Customer</span></a>
+                <a class="dropdown-item" href="{% url 'customer_milk_category' %}"><i class="fas fa-plus"></i><span class="menu-text-size">&nbsp;&nbsp; Milk Category</span></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'allcustomer' %}"> <i class="fa fa-user" ></i><span class="menu-text-size">&nbsp;&nbsp; All Customers</span></a>
+
+            </div>
+          </li>
+
+          {% endif %}
+
+
+
+      </ul>
+
+
+
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {% if user.profile.user_type == 'Manager' %}<strong>Manager </strong>{% elif user.profile.user_type == 'Customer'  %}<strong>Customer </strong> {% endif %}{{ user.username }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'password_change' %}"><i class="fa fa-cogs"></i><span class="menu-text-size">&nbsp;&nbsp; Change Password</span></a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i><span class="menu-text-size">&nbsp;&nbsp; Log Out</span></a>
+            </div>
+
+          </li>
+
+        </ul>
+      {% else %}
+        <form class="form-inline my-2 my-lg-0 jugnu">
+          <a href="{% url 'login' %}" class="nav-link" style="color: #FFFFFF;"><i class="fas fa-sign-in-alt" style="background-color: unset !important;">&nbsp;&nbsp;Log In</i></a>
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+
+  </nav>
+
+<div class="container">
+
+      {% block content %}
+      {% endblock %}
+
+</div>
+
+<!-- Scroll to top button Start -->
+<a id="back-to-top" href="#" class="btn btn-dark back-to-top" role="button"><i class="fas fa-chevron-up" id="scoll-omar"></i></a>
+
+<script>
+  $(document).ready(function(){
+	$(window).scroll(function () {
+			if ($(this).scrollTop() > 50) {
+				$('#back-to-top').fadeIn();
+			} else {
+				$('#back-to-top').fadeOut();
+			}
+		});
+		// scroll body to 0px on click
+		$('#back-to-top').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 500);
+			return false;
+		});
+  });
+</script>
+<!-- Scroll to top button End -->
+
+<footer class="footer sticky-bottom">
+  <div class="mt-5 py-3">
+    <span>© 2021 Dairy Milk Management System. All Right Reserved</span>
+  </div>
+</footer>
+
+</body>
+</html>

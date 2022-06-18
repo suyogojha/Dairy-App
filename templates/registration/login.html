@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+  #back {
+    background-color: #2B2D33;
+    color: #B8C6CC;
+  }
+
+  .form-control{
+    background-color: #2B2D33!important;
+    color: #B8C6CC!important;
+  }
+</style>
+
+<div class="row justify-content-center">
+  <div class="col-6">
+    <div class="card" id="back">
+      <div class="card-body">
+        <h2 class="row justify-content-center text-dark"><i class="fa fa-sign-in-alt" style="color: #B8C6CC; pointer-events: none;">&nbsp;Log In</i></h2><hr>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button type="submit" class="btn btn-dark mb-2">Login</button>
+          <a href="{% url 'password_reset' %}" class="btn btn-link">Forgot your password?</a>
+          </form>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
